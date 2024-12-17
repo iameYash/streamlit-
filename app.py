@@ -3,7 +3,6 @@ import json
 import boto3
 from botocore.config import Config
 my_config = Config(
-    region_name = 'us-east-1',
     retries = {
         'max_attempts': 10,
         'mode': 'standard'
@@ -50,7 +49,8 @@ def base64_to_pil(base64_string):
     return image
 bedrock_runtime = boto3.client(
     service_name="bedrock-runtime",
-    endpoint_url='https://vpce-071e0069bc4391e18.bedrock-runtime.us-east-1.vpce.amazonaws.com',
+    region_name = 'us-east-1',
+    endpoint_url='https://bedrock-runtime.us-east-1.amazonaws.com',
     config=my_config
 )
 # Bedrock api call to stable diffusion
