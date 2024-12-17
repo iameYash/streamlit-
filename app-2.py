@@ -42,7 +42,7 @@ def base64_to_pil(base64_string):
     return image
 bedrock_runtime = boto3.client(
     service_name="bedrock-runtime",
-    region="us-east-1",
+    region_name="us-east-1",
 )
 # Bedrock api call to stable diffusion
 def generate_image_sd(text, style):
